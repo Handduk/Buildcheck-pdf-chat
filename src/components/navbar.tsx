@@ -44,7 +44,7 @@ export const Navbar = () => {
           Home
         </a>
         <a
-          href="https://github.com/Handduk"
+          href="https://github.com/Handduk/Buildcheck-pdf-chat"
           target="_blank"
           rel="noreferrer noopener"
           className="px-4 py-3 w-fit cursor-pointer hover:text-white transition-all duration-150"
