@@ -2,12 +2,17 @@ import OpenAI from "openai"
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
+if(!import.meta.env.VITE_API_KEY){
+  window.alert("Warning: No API key specified in `.env` file.")
+}
+
 const openai = new OpenAI({
   apiKey: apiKey,
   dangerouslyAllowBrowser: true,
 });
 
 export const createAssistant = async () => {
+  try{
     const assistant = await openai.beta.assistants.create({
       name: "Pdf chat bot",
       instructions:
@@ -16,7 +21,14 @@ export const createAssistant = async () => {
       tools: [{ type: "file_search" }],
     });
     console.log("Assistant created: ", assistant.name, "id: ", assistant.id)
+    console.log(assistant)
     return assistant;
+  } catch (error) {
+    if (error){
+      window.alert("Valid api key not found. Please ensure that a valid OpenAi api key is provided in the .env file")
+    }
+    throw error
+  }
   };
 
   export const deleteAssistant = async(assistantId: string) => {
