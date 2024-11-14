@@ -75,6 +75,7 @@ export const ChatPage = () => {
     }
     const data = await createAssistant();
     setAssistant(data);
+    console.log(data);
   };
 
   const startChat = () => {
@@ -164,9 +165,11 @@ export const ChatPage = () => {
             />
             <button
               className="pt-2 pb-2 pl-5 pr-5 mb-auto text-lg rounded-md
-              bg-gradient-to-r from-violet-700 to-red-600 text-white font-semibold
+              bg-gradient-to-r from-violet-700 to-red-600 text-white font-semibold cursor-pointer
               hover:shadow-md hover:shadow-gray-400 hover:text-black transition-all duration-200
-             disabled:text-black dark:border dark:border-zinc-700 dark:hover:shadow-zinc-800"
+              dark:border dark:border-zinc-700 dark:hover:shadow-zinc-800 
+              disabled:text-black disabled:hover:shadow-none disabled:bg-gradient-to-r disabled:from-zinc-700
+               disabled:to-neutral-400 disabled:cursor-default"
               onClick={startChat}
               disabled={assistant ? false : true}
             >
